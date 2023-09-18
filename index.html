@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Case study 2: Data visualisation</title>
+
+    <!-- Libraries -->
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/math.min.js" ></script>
+
+
+    <link rel="stylesheet" href="style.css">
+    <script src="lib/p5.buildGeometry.min.js"></script>
+
+    <!-- Main sketch file -->
+    <script src="sketch.js"></script>
+
+
+
+    <!-- Main visualisation files -->
+    <script src="tech-diversity-race.js"></script>
+    <script src="tech-diversity-gender.js"></script>
+    <script src="pay-gap-by-job-2017.js"></script>
+    <script src="pay-gap-1997-2017.js"></script>
+    <script src="climate-change.js"></script>
+    <script src="utils.js" type="text/javascript"></script>
+    <script src="nn.js" type="text/javascript"></script>
+    <script src="cnn.js" type="text/javascript"></script>
+
+    <script src="NNSimulation.js"></script>
+    <script src="CNNSimulation.js"></script>
+    <script src="NewYorkCrime.js"></script>
+
+
+    <!-- Add extra scripts below -->
+    <script src="helper-functions.js"></script>
+    <script src="gallery.js"></script>
+    <script src="pie-chart.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+
+      <div class="zoom-btns">
+        <button id="zoomIn">+</button>
+        <button id="zoomOut">-</button>
+      </div>
+
+
+
+
+
+      <div class="elements-container">
+
+        <ul id="visuals-menu"></ul>
+        <div class="map-container">
+          <select id="crimeSelect">
+
+          </select>
+        <div class="colorbar"></div>
+        <div class="color-label">
+          <span>0</span>
+          <span>150</span>
+          <span>300</span>
+          <span>450</span>
+          <span>600</span>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+Class NeuralNetwork
+
+  Initialize(inputNodes, hiddenNodes, outputNodes, learningRate, modelFile = null)
+    this.inputNodes <- inputNodes
+    this.hiddenNodes <- hiddenNodes
+    this.outputNodes <- outputNodes
+    this.learningRate <- learningRate
+    this.hiddenOutputHighlights <- new array
+    this.mostInfluentialInputs <- new empty array
+
+    If modelFile is provided
+      this.weightsInput <- modelFile.weightsInput
+      this.weightsOutput <- modelFile.weightsOutput
+    Else
+      this.weightsInput <- createRandomMatrix(hiddenNodes, inputNodes, hiddenNodes)
+      this.weightsOutput <- createRandomMatrix(outputNodes, hiddenNodes, outputNodes)
+
+  Function query(inputsList)
+    inputs <- transpose inputsList to a 2D array
+    hiddenInputs <- dot product of this.weightsInput and inputs
+    hiddenOutputs <- apply sigmoid function on hiddenInputs
+
+    Reset this.hiddenOutputHighlights
+
+    indices <- top 25 indices from hiddenOutputs
+
+    For each index in indices
+      this.hiddenOutputHighlights[index] <- 1
+
+    activeHiddenWeights <- weights of the most activated hidden nodes
+
+    finalInputs <- dot product of this.weightsOutput and hiddenOutputs
+    finalOutputs <- apply sigmoid function on finalInputs
+
+    Return finalOutputs
+
+  Function train(inputsList, targetsList)
+    inputs <- transpose inputsList to a 2D array
+    targets <- transpose targetsList to a 2D array
+
+    // Forward pass
+    hiddenInputs <- dot product of this.weightsInput and inputs
+    hiddenOutputs <- apply sigmoid function on hiddenInputs
+
+    finalInputs <- dot product of this.weightsOutput and hiddenOutputs
+    finalOutputs <- apply sigmoid function on finalInputs
+
+    // Backward pass
+    outputErrors <- difference between targets and finalOutputs
+
+    hiddenErrors <- dot product of transpose of this.weightsOutput and outputErrors
+
+    weightUpdate <- calculate weight update for output layer
+    this.weightsOutput <- add this.weightsOutput and weightUpdate
+
+    weightUpdate <- calculate weight update for hidden layer
+    this.weightsInput <- add this.weightsInput and weightUpdate
+
+End Class

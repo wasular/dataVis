@@ -1,0 +1,2 @@
+Failed --> Setting --> getContext("2d", { willReadFrequently: true }); --> helps for getImage Data functions like MaxPool and Conv but worsens GPU heavy operations
+Failed --> Using raw web GL Calls for the primitive p5 structures seems to not improve the performance drastically as the main problem are seperate calls for triangle creation and the abstraction of p5 at least for simple geometries seems to be not that high

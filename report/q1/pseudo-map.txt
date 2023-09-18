@@ -1,0 +1,48 @@
+// Variables
+Define variables for the map such as zoom level, center coordinates, map tiles, mouse coordinates, panning state, grid, crime select, latlong dictionary, maximum crime count and maximum count.
+
+// Color Scale Function
+Define function colorScale() to calculate color scale based on data count:
+  - Accepts a count as argument.
+  - Calculates ratio of the count in relation to minimum and maximum count.
+  - Calculates color by linear interpolation.
+  - Returns the color.
+
+// Build Latitude/Longitude Dictionary Function
+Define function buildLatLongDict() to build a dictionary with latitude and longitude as keys and count of crimes as values:
+  - Accepts selectedCrime as an argument.
+  - Iterates over each row of map data.
+  - Increments the count of crime for each latitude/longitude key in the dictionary.
+  - Updates the maximum crime count if needed.
+
+// Rebuild Latitude/Longitude Dictionary Function
+Define function rebuildLatLongDictForCrime() to rebuild the latitude/longitude dictionary based on the selected crime:
+  - Selects the crime from the dropdown.
+  - Calls buildLatLongDict() with the selected crime.
+
+// New York Crime Class
+Define class NewYorkCrime with properties name and id.
+  - Setup() method to initialize the crime visualization.
+  - Draw() method to update the visual representation of data.
+  - Conversion functions to convert between tile coordinates and longitude/latitude and vice versa.
+  - degreesPerPixel() function to calculate the degrees per pixel based on the zoom level.
+
+// Mouse Event Functions
+Define mousePressed() and mouseReleased() to handle panning:
+  - When the mouse is pressed, enable panning.
+  - When the mouse is released, disable panning.
+
+// Key Press Function
+Define keyPressed() to handle zooming in and out with arrow keys:
+  - If up arrow key is pressed, increment zoom.
+  - If down arrow key is pressed, decrement zoom.
+  - Constrain the zoom level between a minimum and maximum value.
+
+// Zoom Functions
+Define zoomIn() and zoomOut() functions to handle zoom in and out when + and - buttons are clicked:
+  - If zoom in button is clicked, increment zoom.
+  - If zoom out button is clicked, decrement zoom.
+  - Constrain the zoom level between a minimum and maximum value.
+
+// Event Listeners
+When the document is loaded, get the zoom in and zoom out buttons from the document and add click event listeners to them to call the respective zoom functions.

@@ -1,0 +1,99 @@
+body{
+    font-family: sans-serif
+}
+
+.menu-item {
+    width: 250px;
+    height: 50px;
+   border-bottom: 1px solid #ececec;
+    list-style-type: none;
+    padding: 5px;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #424242;
+}
+
+.container {
+  display: flex;
+
+}
+
+.hover {
+    background: #f6f6f6;
+    border-radius: 5px;
+}
+
+.selected{
+    background: #9BCDD2;
+    border-radius: 5px;
+}
+
+.canvas {
+    display: none;
+}
+
+
+#map {
+    height: 600px;
+    width: 800px;
+}
+
+.elements-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container{
+    display: none;
+    flex-direction: column;
+    gap: .5rem;
+    padding:1rem;
+
+}
+
+
+
+
+.colorbar {
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(to right, blue, red);
+
+
+}
+.color-label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.zoom-btns{
+    position: absolute;
+    z-index: 2;
+    top: 8rem;
+    right: 16rem;
+    gap: .5rem;
+    display: none;
+}
+
+.zoom-btns button {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    width: 40px;
+    height: 40px;
+}
+
+.zoom-btns button:hover {
+    background-color: #fafafa;
+}

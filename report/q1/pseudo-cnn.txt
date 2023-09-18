@@ -1,0 +1,66 @@
+class ConvolutionLayer:
+  Initialize(kernelNum, kernelSize, kernels):
+    Set kernelNum, kernelSize, kernels
+
+  Function patches(image):
+    Set image to the instance
+    Calculate image height and width
+    Slide the kernel across the image to generate patches
+    For each patch, yield the patch and its location in the image
+
+  Function forwardProp(image):
+    Initialize the output of the convolution operation
+    For each patch from patchesGenerator:
+      Apply convolution operation
+      Store result in corresponding location in the convolutionOutput
+    Store output for use in backpropagation
+    Return convolutionOutput
+
+  Function backProp(errorGradient, alpha):
+    Initialize errorGradientKernel
+    For each patch of the original image again:
+      Update gradient based on the error gradient passed from the following layer and the patch
+    Update the kernels of the layer based on the computed gradients and the learning rate
+    Return computed error gradient for the previous layer
+
+
+class MaxPoolingLayer:
+  Initialize(kernelSize):
+    Set kernelSize to the instance
+
+  Function patches(image):
+    Determine dimensions of output based on input image size and kernel size
+    Slide pooling window across the image to generate patches
+    For each patch, yield the patch and its location in the image
+
+  Function forward(image):
+    Initialize the output of the max pooling operation
+    Apply max pooling operation for each patch from patchesGenerator
+    Store output for use in backpropagation
+    Return maxPoolingOutput
+
+  Function backProp(errorGradient):
+    Propagate the error gradient back to locations of maximum values in each pooling window
+    Return errorGradientKernel
+
+
+class SoftMaxLayer:
+  Initialize(inputUnits, outputUnits, weight, bias):
+    Set weight and bias
+
+  Function forwardProp(image):
+    Store the input image for use in backpropagation
+    Calculate the softmax output
+    Store the softmax output for use in backpropagation
+    Return softmaxOutput
+
+  Function backProp(errorGradient, alpha):
+    Compute the gradients and update the weights and biases of the layer
+    Return reshaped gradientErrorInput
+
+
+Function CNNTraining(image, label, layers, alpha):
+  Perform a forward pass through all layers
+  Compute gradient
+  Perform a backpropagation
+  Return loss and accuracy
